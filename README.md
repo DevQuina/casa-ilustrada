@@ -2,7 +2,7 @@
 
 **Casa Ilustrada** es una publicación digital dedicada al interiorismo, la arquitectura y el arte de habitar. Este espacio combina la estética editorial clásica con la interactividad moderna para inspirar a quienes buscan transformar sus hogares.
 
-**Lee la última edición:** [casailustrada.netlify.app](https://casailustrada.netlify.app)
+**Lee la última edición:** (https://casa-ilustrada.noeliaquina.com)
 
 ---
 
