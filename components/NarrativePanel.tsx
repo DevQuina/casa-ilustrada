@@ -86,18 +86,9 @@ interface NarrativePanelProps {
 
 export const NarrativePanel: React.FC<NarrativePanelProps> = ({ currentScene, isVisible, scrollYProgress }) => {
   const isAtrio = currentScene.id === 'atrio';
-  const panelOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
-  const panelTranslate = useTransform(scrollYProgress, [0, 0.08], [0, -30]);
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isVisible ? 1 : 0 }}
-      transition={{ duration: 1 }}
-      style={{ 
-        opacity: isAtrio ? 1 : panelOpacity, 
-        y: isAtrio ? 0 : panelTranslate 
-      }}
       className="w-full flex justify-start"
     >
       <NarrativeContent currentScene={currentScene} isAtrio={isAtrio} />

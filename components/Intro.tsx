@@ -25,12 +25,13 @@ export const Intro: React.FC<IntroProps> = ({ onStart }) => {
          {/* Animated Title */}
          <div className="overflow-visible mb-2 px-4 md:px-10">
             <div className="overflow-hidden">
-                <motion.h1
+                 <motion.h1
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     className="font-serif text-4xl md:text-8xl italic tracking-tighter text-stone-900 pr-2 md:pr-4 pb-2"
-                >
+                    style={{ willChange: "transform" }}
+                 >
                 Casa Ilustrada
                 </motion.h1>
             </div>

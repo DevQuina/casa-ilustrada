@@ -107,51 +107,71 @@ const App: React.FC = () => {
         ref={scrollContainerRef}
         className="w-full h-full overflow-y-auto hide-scrollbar scroll-smooth bg-[#E6E2DD]"
       >
-        <div className={`relative w-full ${!isAtrio ? 'min-h-[200vh]' : 'h-full'}`}>
-            
-            <div className="w-full h-full flex flex-col md:flex-row bg-[#E6E2DD]">
-                
-                {/* Columna Visual (Imagen) */}
-                <div className={`relative w-full overflow-hidden flex items-center justify-center bg-[#E6E2DD]
-                    ${isAtrio ? 'h-[40vh] md:h-full md:w-[45%]' : 'h-[40vh] md:h-screen md:w-[45%] md:sticky md:top-0'}
-                `}>
-                    <motion.div
-                        animate={{ 
-                            scale: isAtrio ? (viewState === ViewState.ZOOMED ? 0.95 : 0.8) : 1,
-                        }}
-                        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} 
-                        className="relative w-full h-full flex items-center justify-center p-4 md:p-8 lg:p-12"
-                    >
-                        <AnimatePresence mode="wait">
-                            <ActiveScene 
-                                key={currentScene.id} 
-                                onNavigate={handleNavigate} 
-                                viewState={viewState}
-                            />
-                        </AnimatePresence>
-                    </motion.div>
-                </div>
-
-                {/* Columna Editorial (Texto) */}
-                <div className={`relative w-full flex flex-col items-start justify-center bg-[#E6E2DD]
-                    ${isAtrio ? 'h-[60vh] md:h-full md:w-[55%]' : 'min-h-[60vh] md:min-h-screen md:w-[55%]'}
-                `}>
-                    <div className="w-full px-6 sm:px-10 md:px-12 lg:px-20 py-6 md:py-0">
-                        <NarrativePanel 
-                            currentScene={currentScene} 
-                            isVisible={viewState === ViewState.ZOOMED}
-                            scrollYProgress={scrollYProgress}
-                        />
-                    </div>
-                </div>
+        {!isAtrio ? (
+          <div className="w-full flex flex-col md:flex-row bg-[#E6E2DD] min-h-screen">
+            {/* Columna Editorial (Texto) - IZQUIERDA */}
+            <div className="relative w-full md:w-[55%] flex flex-col items-start bg-[#E6E2DD] z-10">
+              <div className="w-full px-6 sm:px-10 md:px-12 lg:px-20 py-12 md:py-20">
+                <NarrativePanel 
+                  key={currentScene.id}
+                  currentScene={currentScene} 
+                  isVisible={viewState === ViewState.ZOOMED}
+                  scrollYProgress={scrollYProgress}
+                />
+              </div>
+              <EditorialArticle scene={currentScene} />
             </div>
 
-            {!isAtrio && (
-                <div className="w-full relative z-20">
-                    <EditorialArticle scene={currentScene} />
-                </div>
-            )}
-        </div>
+            {/* Columna Visual (Imagen) - DERECHA */}
+            <div className="relative w-full h-[40vh] md:h-screen md:w-[45%] overflow-hidden flex items-center justify-center bg-transparent">
+              <motion.div
+                animate={{ scale: 1 }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} 
+                className="relative w-full h-full flex items-center justify-center p-4 md:p-8 lg:p-12"
+              >
+                <AnimatePresence mode="wait">
+                  <ActiveScene 
+                    key={currentScene.id} 
+                    onNavigate={handleNavigate} 
+                    viewState={viewState}
+                  />
+                </AnimatePresence>
+              </motion.div>
+            </div>
+          </div>
+        ) : (
+          <div className="w-full h-full flex flex-col md:flex-row bg-[#E6E2DD]">
+            {/* Columna Visual (Imagen) */}
+            <div className="relative w-full h-[40vh] md:h-full md:w-[45%] overflow-hidden flex items-center justify-center bg-[#E6E2DD]">
+              <motion.div
+                animate={{ 
+                  scale: viewState === ViewState.ZOOMED ? 0.95 : 0.8,
+                }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }} 
+                className="relative w-full h-full flex items-center justify-center p-4 md:p-8 lg:p-12"
+              >
+                <AnimatePresence mode="wait">
+                  <ActiveScene 
+                    key={currentScene.id} 
+                    onNavigate={handleNavigate} 
+                    viewState={viewState}
+                  />
+                </AnimatePresence>
+              </motion.div>
+            </div>
+
+            {/* Columna Editorial (Texto) */}
+            <div className="relative w-full h-[60vh] md:h-full md:w-[55%] flex flex-col items-center justify-center bg-[#E6E2DD]">
+              <div className="w-full px-6 sm:px-10 md:px-12 lg:px-20 py-6 md:py-0">
+                <NarrativePanel 
+                  currentScene={currentScene} 
+                  isVisible={viewState === ViewState.ZOOMED}
+                  scrollYProgress={scrollYProgress}
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {!showIntro && !showVideo && (

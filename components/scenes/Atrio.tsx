@@ -26,6 +26,7 @@ export const Atrio: React.FC<SceneProps> = ({ onNavigate, viewState }) => {
         />
         <motion.div 
           className="absolute inset-0"
+          initial={{ opacity: 0 }}
           animate={{ opacity: viewState === ViewState.ZOOMED ? 1 : 0 }}
           transition={{ duration: 0.5, delay: 0.8 }} 
         >
