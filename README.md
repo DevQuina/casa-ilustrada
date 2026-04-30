@@ -1,20 +1,38 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Casa Ilustrada — Revista Digital de Decoración 
 
-# Run and deploy your AI Studio app
+**Casa Ilustrada** es una publicación digital dedicada al interiorismo, la arquitectura y el arte de habitar. Este espacio combina la estética editorial clásica con la interactividad moderna para inspirar a quienes buscan transformar sus hogares.
 
-This contains everything you need to run your app locally.
+**Lee la última edición:** (https://casa-ilustrada.noeliaquina.com)
 
-View your app in AI Studio: https://ai.studio/apps/drive/10z6HXbaeEi7kLPbsz-sOmltTD7Odn9h3
+---
 
-## Run Locally
+## Concepto Editorial
 
-**Prerequisites:**  Node.js
+El proyecto se centra en la narrativa visual del hogar, explorando desde el minimalismo cálido hasta el maximalismo ecléctico.
 
+### Secciones destacadas:
+- **Open House:** Recorridos fotográficos por casas con alma.
+- **Objetos de Deseo:** Selección de piezas de diseño, mobiliario y arte.
+- **Tendencias:** Análisis de materiales, texturas y paletas cromáticas de temporada.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+---
+
+## ADN Visual (Brand Identity)
+
+El diseño de la revista digital sigue principios de la maquetación editorial física:
+
+- **Tipografía "High-Contrast":** Uso de fuentes Serif para titulares que evocan elegancia y sofisticación.
+- **Grid Editorial:** Un sistema de rejilla flexible que permite composiciones asimétricas y dinámicas.
+- **Fotografía Inmersiva:** Uso de *Lazy Loading* y optimización de imágenes para garantizar que la calidad visual no afecte la velocidad.
+- **Minimalismo UI:** Una interfaz limpia para que el contenido fotográfico sea el verdadero protagonista.
+
+---
+
+## Stack Tecnológico
+
+Desarrollado con un enfoque en la legibilidad y la experiencia de usuario (UX):
+
+- **Arquitectura:** HTML5 Semántico (mejorando el SEO para artículos de revista).
+- **Estilos:** CSS3 Custom Properties & Flexbox/Grid para un layout editorial.
+- **Interacciones:** JavaScript para efectos de *scroll* suave y galerías interactivas.
+- **Performance:** Optimizado para obtener puntuaciones altas en Core Web Vitals.
